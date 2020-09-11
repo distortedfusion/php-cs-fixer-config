@@ -2,7 +2,7 @@
 
 [![Latest Version](https://img.shields.io/github/tag/distortedfusion/php-cs-fixer-config.svg?style=flat-square)](https://github.com/distortedfusion/php-cs-fixer-config/tags)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/distortedfusion/php-cs-fixer-config/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/distortedfusion/php-cs-fixer-config.svg?style=flat-square)](https://travis-ci.org/distortedfusion/php-cs-fixer-config)
+[![Build Status](https://img.shields.io/github/workflow/status/distortedfusion/php-cs-fixer-config/CI-CD.svg?style=flat-square)](https://github.com/distortedfusion/php-cs-fixer-config/actions)
 
 This is a shared [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) configuration used in our packages.
 
