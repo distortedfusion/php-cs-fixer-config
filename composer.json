@@ -1,0 +1,35 @@
+{
+    "name": "distortedfusion/php-cs-fixer-config",
+    "description": "PHP-CS Fixer config",
+    "keywords": ["distortedfusion", "php-cs-fixer", "config"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Dierkx",
+            "email": "kevin@distortedfusion.com",
+            "homepage": "https://distortedfusion.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "DistortedFusion\\PhpCsFixerConfig\\": "src/"
+        }
+    },
+    "scripts": {
+        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --ansi",
+        "phpcs": "php-cs-fixer fix -v --diff --dry-run --rules=psr0,psr4 --allow-risky=yes --ansi",
+        "test": [
+            "@phpcs"
+        ]
+    },
+    "scripts-descriptions": {
+        "phpcs": "Runs coding style test suite",
+        "test": "Runs all tests"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
