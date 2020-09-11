@@ -18,6 +18,8 @@ class Config extends BaseConfig
         '@Symfony' => true,
 
         // Additional rules
+        'psr0' => true,
+        'psr4' => true,
         'yoda_style' => false,
 
         // Arrays...

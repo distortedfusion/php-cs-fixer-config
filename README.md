@@ -44,14 +44,14 @@ return $config;
 
 By using composer scripts we can add some extra rules for testing. Adding psr0 and psr4 would always require the use of risky rules, instead we only want to use those during testing `$ composer phpcs` and when fixing the code `$ composer phpcs-fix` we omit these rules.
 
-If you still want to apply these risky rules you can run php-cs-fixer manually: `$ /vendor/bin/php-cs-fixer fix --using-cache=no --rules=psr0,psr4 --allow-risky=yes --ansi`
+If you still want to apply these risky rules you can run php-cs-fixer manually: `$ /vendor/bin/php-cs-fixer fix --using-cache=no --allow-risky=yes --ansi`
 
 ```json
 {
     ...
     "scripts": {
-        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --ansi",
-        "phpcs": "php-cs-fixer fix -v --diff --dry-run --rules=psr0,psr4 --allow-risky=yes --ansi",
+        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --rules=-psr0,-psr4 --ansi",
+        "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes --ansi",
         "test": [
             "@phpcs"
         ]
