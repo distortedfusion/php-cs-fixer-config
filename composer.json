@@ -1,6 +1,6 @@
 {
     "name": "distortedfusion/php-cs-fixer-config",
-    "description": "PHP-CS Fixer config",
+    "description": "A shared php-cs-fixer config used in our packages.",
     "keywords": ["distortedfusion", "php-cs-fixer", "config"],
     "license": "MIT",
     "authors": [
