@@ -35,7 +35,8 @@ Adding an array of rules to the construct of the Config object allows you to add
 <?php
 
 $config = new DistortedFusion\PhpCsFixerConfig\Config([
-    'declare_strict_types' => true,
+    'psr0' => false,
+    'psr4' => false,
 ]);
 $config->getFinder()
     ->in(__DIR__ . "/src")
@@ -46,15 +47,15 @@ return $config;
 
 ### Composer scripts
 
-By using composer scripts we can add some extra rules for testing. Adding psr0 and psr4 would always require the use of risky rules, instead we only want to use those during testing `$ composer phpcs` and when fixing the code `$ composer phpcs-fix` we omit these rules.
+Adding composer scripts makes it easy to add aliases for testing and fixing code styling.
 
-If you still want to apply these risky rules you can run php-cs-fixer manually: `$ /vendor/bin/php-cs-fixer fix --using-cache=no --allow-risky=yes --ansi`
+*Please Note:* The config contains risky rules by default, this requires the usage of `--allow-risky=yes`. If you don't want to run risky rules you can excluded them in the `.php-cs.dist` config.
 
 ```json
 {
     ...
     "scripts": {
-        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --rules=-psr0,-psr4 --ansi",
+        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --allow-risky=yes --ansi",
         "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes --ansi",
         "test": [
             "@phpcs"

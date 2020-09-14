@@ -20,7 +20,7 @@
         }
     },
     "scripts": {
-        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --rules=-psr0,-psr4 --ansi",
+        "phpcs-fix" : "php-cs-fixer fix --using-cache=no --allow-risky=yes --ansi",
         "phpcs": "php-cs-fixer fix -v --diff --dry-run --allow-risky=yes --ansi",
         "test": [
             "@phpcs"
