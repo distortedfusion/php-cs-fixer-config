@@ -1,30 +1,45 @@
 name: CI-CD
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   php-test:
-    name: Test PHP
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [7.3, 7.4]
+        stability: [prefer-lowest, prefer-stable]
+        experimental: [false]
+        include:
+          - php: 8.0
+            stability: prefer-lowest
+            experimental: true
+          - php: 8.0
+            stability: prefer-stable
+            experimental: true
+
+    continue-on-error: ${{ matrix.experimental }}
+
+    name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
+
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php }}
+          coverage: none
           extensions: mbstring, bcmath
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-composer-${{ hashFiles('composer.json') }}
-      - name: Install Dependencies (PHP vendors)
-        run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-      - name: PHPCS
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
+
+      - name: Execute PHPCS
         run: composer phpcs
