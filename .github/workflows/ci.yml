@@ -14,9 +14,6 @@ jobs:
         experimental: [false]
         include:
           - php: 8.0
-            stability: prefer-lowest
-            experimental: true
-          - php: 8.0
             stability: prefer-stable
             experimental: true
 
