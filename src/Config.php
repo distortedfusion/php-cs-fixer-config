@@ -11,14 +11,14 @@ class Config extends BaseConfig
      *
      * @var array
      */
-    protected $defaultRules = [
+    protected array $defaultRules = [
         // Base rule sets...
         '@PSR1' => true,
         '@PSR2' => true,
         '@Symfony' => true,
 
         // Additional rules
-        'psr4' => true,
+        'psr_autoloading' => true,
         'yoda_style' => false,
 
         // Arrays...
@@ -27,7 +27,7 @@ class Config extends BaseConfig
         // Spacing...
         'single_line_throw' => false,
         'binary_operator_spaces' => true,
-        'blank_line_before_return' => true,
+        'blank_line_before_statement' => true,
         'ternary_operator_spaces' => true,
         'not_operator_with_successor_space' => true,
 
@@ -55,25 +55,25 @@ class Config extends BaseConfig
      *
      * @var array
      */
-    protected $overrides = [];
+    protected array $extraRules = [];
 
     /**
      * Create a new Config instance.
      *
-     * @param array $rules
+     * @param array $extraRules
      */
-    public function __construct(array $rules = [])
+    public function __construct(array $extraRules = [])
     {
         parent::__construct('Distorted Fusion - Shared Coding Standard');
 
-        $this->overrides = $rules;
+        $this->extraRules = $extraRules;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRules()
+    public function getRules(): array
     {
-        return array_merge($this->defaultRules, $this->overrides);
+        return array_merge($this->defaultRules, $this->extraRules);
     }
 }
