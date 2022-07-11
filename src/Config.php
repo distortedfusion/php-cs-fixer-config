@@ -48,6 +48,9 @@ class Config extends BaseConfig
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
         'no_superfluous_phpdoc_tags' => false,
         'no_blank_lines_after_phpdoc' => true,
+
+        // Breaks code: https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/6472
+        'no_unneeded_control_parentheses' => false,
     ];
 
     /**
