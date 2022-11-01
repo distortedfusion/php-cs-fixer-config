@@ -20,6 +20,11 @@ class Config extends BaseConfig
         // Additional rules
         'psr_autoloading' => true,
         'yoda_style' => false,
+        'global_namespace_import' => [
+            'import_classes' => true,
+            'import_constants' => false,
+            'import_functions' => false,
+        ],
 
         // Arrays...
         'array_syntax' => ['syntax' => 'short'],
