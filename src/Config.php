@@ -25,6 +25,7 @@ class Config extends BaseConfig
             'import_constants' => false,
             'import_functions' => false,
         ],
+        'declare_strict_types' => true,
 
         // Arrays...
         'array_syntax' => ['syntax' => 'short'],
