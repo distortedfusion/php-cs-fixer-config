@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DistortedFusion\PhpCsFixerConfig;
 
 use PhpCsFixer\Config as BaseConfig;
