@@ -48,7 +48,9 @@ class Config extends BaseConfig
         'phpdoc_trim' => true,
         'phpdoc_separation' => true,
 
-        'phpdoc_to_comment' => true,
+        'phpdoc_to_comment' => [
+            'ignored_tags' => ['var'],
+        ],
         'phpdoc_no_access' => true,
         'phpdoc_no_alias_tag' => true,
         'phpdoc_no_package' => true,
